@@ -1,0 +1,26 @@
+name: CI
+on:[pull_request] # when to trigger this project
+jobs:
+  build: # a project can have multiple jobs 
+    runs-on: ubuntu-latest #since we run on browser stack we don't need emulators etc here.. can use ubuntu-latest
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v2 #in-built action to checkout the code in this agent
+      - name: Node setup
+        uses: actions/setup-node@v1
+        with:
+          node-version: 24.15.0
+      - name: Install
+        run: npm install #running a custom command to install node 
+      - name: Test
+        env: #provinding custom env details..
+          BROWSERSTACK_USER: ${{secrets.BS_USER}}
+          BROWSERSTACK_KEY: ${{secrets.BS_KEY}}
+        run: npx wdio config/wdio.android.bs.config.ts --spec test/specs/add-note.spec.ts
+      - name: upload artifacts
+        uses: actions/upload-artifact@v1
+        if: failure() 
+        with: 
+          name: logs
+          path: logs         
+  
