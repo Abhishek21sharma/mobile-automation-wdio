@@ -104,6 +104,20 @@ driver xuitest
 it downloads webdriver agent in iOS phone
 (we might have to build the webdriveragent from xcode)
 
+IMPORTANT........................
+
+1.  look into base.ts file and look how we handled the locators in the same class file only
+    instead of creating multi class file based on the platform..
+
+2.  Factory way to handle the locators for seperate folder structures...
+    we follow Factory + Template pattern ... testing tools endourse and follow this , like appium and detox..
+
+3.  A light version of Factory pattern is implemented here using interfaces (login )
+
+difference: facotry pattern is advanced and mostly used when Android and iOS have
+a complete different locators and huge difference and then it would make sense
+to create seperate files..
+otherwise stict to : unified screenobject (specially in the case of flutter app)
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 questions::
 how to start a fresh session ?: app clear chache and then start at new run
