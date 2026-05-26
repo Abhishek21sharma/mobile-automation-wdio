@@ -1,6 +1,10 @@
 check wdio latest course to understand how to add cucumber
 also how to use locator best strategy
 
+to install wdio
+npm init wdio ./path
+or simily npm init wdio . (in current directory)
+
 to run wdio with mocha:
 npx wdio..
 
